@@ -1,1 +1,800 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2nd Anniversary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #f1f8e9;
+            --accent-color: #4caf50;
+            --text-color: #333333;
+            --light-text: #ffffff;
+            --pattern-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        /* Background Pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, var(--pattern-color) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--pattern-color) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, var(--pattern-color) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, var(--pattern-color) 0%, transparent 30%);
+            z-index: -1;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 1s ease-out;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: var(--light-text);
+        }
+
+        .islamic-loader {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .islamic-loader::before {
+            content: "﷽";
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+            100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* Header Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            overflow: hidden;
+        }
+
+        .islamic-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .islamic-element {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .bismillah {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-out;
+        }
+
+        .date {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeIn 3s ease-out;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: var(--light-text);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Journey Section */
+        .journey {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .journey::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
+            background-size: 200% 100%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item::after {
+            content: '★';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            color: var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .right::after {
+            left: -12px;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+        }
+
+        .content p {
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .islamic-date {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* Family Section */
+        .family {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .family-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .family-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .image-frame {
+            position: relative;
+            padding-bottom: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 5px solid white;
+        }
+
+        .image-frame img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        .family-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .family-text h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .family-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .son-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .son-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-family: 'Amiri', serif;
+        }
+
+        /* Message Section */
+        .message {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+            position: relative;
+        }
+
+        .message::before {
+            content: "❝";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 8rem;
+            color: rgba(46, 125, 50, 0.1);
+            font-family: 'Amiri', serif;
+        }
+
+        .message-card {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-card h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2.3rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .message-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .dua {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-style: italic;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: 8px;
+        }
+
+        .signature {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            text-align: right;
+            margin-top: 30px;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .islamic-footer {
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            .left::after, .right::after {
+                left: 18px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .family-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="islamic-loader"></div>
+            <h2>Menyediakan sesuatu yang istimewa...</h2>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="islamic-pattern"></div>
+        <div class="floating-elements" id="floatingElements"></div>
+        <div class="header-content">
+            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+            <h1>Selamat Ulang Tahun Perkahwinan Kedua</h1>
+            <div class="date">10 Februari 2024</div>
+            <p class="subtitle">Dengan rahmat dan berkah dari Allah SWT, kisah cinta kita bermula dengan janji suci di hadapan-Nya</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- Journey Section -->
+    <section class="journey">
+        <div class="container">
+            <h2 class="section-title">Perjalanan Cinta Kita</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h3>Hari Perkahwinan</h3>
+                        <p>10 Februari 2024 - Hari di mana kita mengikat janji suci di hadapan Allah untuk membina bahtera rumah tangga.</p>
+                        <div class="islamic-date">29 Rejab 1445H</div>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <h3>Menanti Anugerah</h3>
+                        <p>Bulan-bulan pertama perkahwinan kita, penuh dengan kasih sayang dan doa untuk keluarga yang bahagia.</p>
+                        <div class="islamic-date">Rejab - Safar 1445-1446H</div>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h3>Anugerah Terindah</h3>
+                        <p>Kelahiran anak pertama kita - 1 Disember 2025. Hadiah terindah dari Allah yang akan melengkapkan keluarga kecil kita.</p>
+                        <div class="islamic-date">10 Jamadil Akhir 1447H</div>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <h3>Masa Depan Kita</h3>
+                        <p>Merancang untuk meraikan ulang tahun pertama dan menyambut kedatangan anak pertama kita dengan penuh kegembiraan.</p>
+                        <div class="islamic-date">29 Rejab 1446H</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Section -->
+    <section class="family">
+        <div class="container">
+            <h2 class="section-title">Keluarga Bahagia Kita</h2>
+            <div class="family-content">
+                <div class="family-image">
+                    <div class="image-frame">
+                        <img src="https://raw.githubusercontent.com/akuboss508/anniversary-greeting/main/eid-2025.jpeg" alt="Ucapan Eid 2025" crossorigin="anonymous">
+                    </div>
+                </div>
+                <div class="family-text">
+                    <h2>Dari Dua Bertiga</h2>
+                    <p>Tahun ini membawa kita kegembiraan yang paling besar - anak lelaki kita yang akan datang. Aku tidak sabar untuk melihatmu menjadi seorang ibu, pengalaman yang paling indah dalam hidupku.</p>
+                    <p>Cinta kita telah berkembang dengan cara yang tidak pernah aku bayangkan. Cara kamu bersedia untuk menjaga anak kita, kekuatan yang kamu tunjukkan, dan kasih sayang yang kamu berikan kepada keluarga kita membuatku jatuh cinta padamu setiap hari.</p>
+                    <p>Ulang tahun perkahwinan pertama kita bukan hanya tentang kita - ia adalah tentang keluarga indah yang akan kita bina bersama dengan izin Allah.</p>
+                    <div class="son-info">
+                        <h3>Anak Pertama Kita</h3>
+						<p><strong>Nama:</strong> Muhammad Adam Maleeq</p>
+                        <p><strong>Tarikh Lahir:</strong> 1 Disember 2025</p>
+                        <p><strong>Hijri:</strong> 10 Jamadil Akhir 1447H</p>
+                        <p>Sesungguhnya anak adalah anugerah dan amanah dari Allah SWT.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message">
+        <div class="container">
+            <div class="message-card">
+                <h2>Cintaku, Segalanya</h2>
+                <p>Hari ini, aku meraikan satu tahun perkahwinan dengan wanita impianku. Ini adalah permulaan perjalanan indah yang kita lalui bersama dan keluarga bahagia yang akan kita bina.</p>
+                
+                <div class="dua">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu merasa tenteram kepadanya. Dan Dia menjadikan di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."
+                    <br><small>(Surah Ar-Rum: 21)</small>
+                </div>
+                
+                <p>Melalui setiap detik, kamu telah menjadi batu karangku, partnerku, dan akan menjadi ibu yang hebat kepada anak kita. Cintamu telah mengubah rumah kita menjadi sebuah rumah yang penuh keberkatan, dan keluarga kita akan menjadi lengkap.</p>
+                
+                <p>Semoga Allah SWT sentiasa merahmati perkahwinan kita, memberkati keluarga kecil kita, dan memanjangkan umur kita dalam keimanan dan ketaatan. Amin.</p>
+                
+                <p>Semoga cinta kita kekal abadi di dunia dan di akhirat. Selamat ulang tahun perkahwinan pertama, sayang.</p>
+                
+                <div class="signature">Kekal milikmu,</div>
+                <div class="signature">Syahril</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="islamic-footer">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</div>
+                <p>Dicipta dengan penuh kasih untuk ulang tahun perkahwinan pertama kita</p>
+                <p>&copy; 2024 Ulang Tahun Perkahwinan Kita. Hak cipta terpelihara.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 1000);
+            }, 2000);
+        });
+
+        // Create floating Islamic elements
+        const islamicElements = ['✦', '✧', '❈', '❉', '✤', '✥', '✦', '✧'];
+        
+        function createIslamicElement() {
+            const element = document.createElement('div');
+            element.classList.add('islamic-element');
+            
+            // Random element
+            element.textContent = islamicElements[Math.floor(Math.random() * islamicElements.length)];
+            
+            // Random size
+            const size = Math.random() * 1.5 + 1;
+            element.style.fontSize = `${size}rem`;
+            
+            // Random position
+            element.style.left = `${Math.random() * 100}%`;
+            
+            // Random animation duration
+            const duration = Math.random() * 10 + 15;
+            element.style.animationDuration = `${duration}s`;
+            
+            // Random opacity
+            element.style.opacity = Math.random() * 0.3 + 0.1;
+            
+            document.getElementById('floatingElements').appendChild(element);
+            
+            // Remove element after animation completes
+            setTimeout(() => {
+                element.remove();
+            }, duration * 1000);
+        }
+
+        // Create elements periodically
+        setInterval(createIslamicElement, 3000);
+
+        // Timeline animation on scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function checkTimeline() {
+            const triggerBottom = window.innerHeight * 0.8;
+            
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                
+                if (itemTop < triggerBottom) {
+                    item.classList.add('show');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkTimeline);
+        checkTimeline(); // Check on page load
+
+        // Handle image loading errors
+        document.querySelector('.image-frame img').addEventListener('error', function() {
+            // Fallback image if GitHub URL doesn't work
+            this.src = 'https://lovewishmsg.com/wp-content/uploads/2025/05/100-Powerful-Islamic-Wedding-Anniversary-Quotes-to-Inspire-Love-Duas2-1024x597.webp';
+            console.log('GitHub image failed to load, using fallback image');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add a personalized message with the current date
+        window.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            const weddingDate = new Date('2024-02-10');
+            const daysTogether = Math.floor((today - weddingDate) / (1000 * 60 * 60 * 24));
+            
+            // You can use this variable to display the number of days together if desired
+            console.log(`Hari bersama: ${daysTogether}`);
+        });
+    </script>
+</body>
+</html>
 
